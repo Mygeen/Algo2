@@ -1,0 +1,7 @@
+Dynamic programming I:
+Introduction, weighted interval scheduling, segmented least squares 
+
+Slides: http://www2.compute.dtu.dk/courses/02110/slides/DP1-1x1.pdf
+Weekplan: http://www2.compute.dtu.dk/courses/02110/weekplans/dp1.pdf
+
+Material: KT 6.1, 6.2, 6.3

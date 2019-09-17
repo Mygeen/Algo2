@@ -1,0 +1,7 @@
+Divide-and-Conquer:
+Recurrence relations, Mergesort (recap), integer multiplication
+
+Slides: http://www2.compute.dtu.dk/courses/02110/slides/Divide-and-conquer-1x1.pdf
+Weekplan: http://www2.compute.dtu.dk/courses/02110/weekplans/divide-and-conquer.pdf
+
+Material: KT 5.1, 5.2, 5.5
