@@ -1,3 +1,5 @@
+# Shitty attempt at weighted interval scheduling (exercise 1)
+
 triple_data = [[1, 7, 4], [10, 12, 2], [2, 5, 3], [8, 11, 4], [12, 13, 3], [3, 9, 5], [3, 4, 3],
                [4, 6, 3], [5, 8, 2], [4, 13, 6]]
 intervals = []
