@@ -1,24 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Numerics;
 using System.Text;
+using MergeSort.Algorithms;
 
 namespace MergeSort
 {
     public class ConsoleUi
     {
-        private List<string> AlgorithmList => new List<string>{"Fibonacci Sequence", "Merge Sort"};
+        private readonly Dictionary<string, IAlgorithm> _algorithmList;
+
+        public ConsoleUi()
+        {
+            _algorithmList = new Dictionary<string, IAlgorithm>();
+            _algorithmList.Add("Fibonacci Sequence", new FibonacciCounter());
+            _algorithmList.Add("Merge Sort", new MergeSorter());
+        }
 
         public void Start()
         {
             while (true)
             {
                 var selection = SelectAlgorithm();
+                Execute(selection);
             }
         }
 
-        public int SelectAlgorithm()
+        public IAlgorithm SelectAlgorithm()
         {
             var result = 0;
             var inputAccepted = false;
@@ -28,7 +38,7 @@ namespace MergeSort
                 PrintMenu();
                 var selection = Console.ReadLine();
                 inputAccepted = int.TryParse(selection.ToCharArray(), NumberStyles.Integer, new NumberFormatInfo(), out result);
-                if (result < 1 || result > AlgorithmList.Count)
+                if (result < 1 || result > _algorithmList.Count)
                 {
                     inputAccepted = false;
                 }
@@ -40,12 +50,19 @@ namespace MergeSort
                 }
             }
 
-            return result;
+            return _algorithmList.GetValueOrDefault(_algorithmList.Keys.ToArray()[result - 1]);
         }
         
-        public void Execute()
+        public void Execute(IAlgorithm selection)
         {
-            throw new NotImplementedException();
+            try
+            {
+                selection.Execute();
+            }
+            catch (ArgumentException e)
+            {
+                PrintErrorMessage(e.Message);
+            }
         }
 
         private void PrintMenu()
@@ -55,9 +72,11 @@ namespace MergeSort
             Console.WriteLine("------ ALGORITHM VISUALIZER ------");
             Console.ForegroundColor = ConsoleColor.White;
 
-            foreach (var algorithm in AlgorithmList)
+            var algorithms = _algorithmList.Keys.ToList();
+
+            foreach (var algorithm in algorithms)
             {
-                Console.WriteLine($"{AlgorithmList.IndexOf(algorithm)+1}. {algorithm}");
+                Console.WriteLine($"{algorithms.IndexOf(algorithm)+1}. {algorithm}");
             }
 
             Console.Write("Select an algorithm: ");

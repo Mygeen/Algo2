@@ -1,6 +1,6 @@
 ﻿namespace MergeSort.Algorithms
 {
-    public class FibonacciCounter
+    public class FibonacciCounter : IAlgorithm
     {
         public int[] GetSequence(int steps)
         {
@@ -18,6 +18,11 @@
             }
 
             return sequence;
+        }
+
+        public int[] Execute()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
