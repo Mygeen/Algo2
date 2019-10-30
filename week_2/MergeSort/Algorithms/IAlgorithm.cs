@@ -6,6 +6,7 @@ namespace MergeSort.Algorithms
 {
     public interface IAlgorithm
     {
-        int[] Execute();
+        void Execute();
+        void Visualize();
     }
 }

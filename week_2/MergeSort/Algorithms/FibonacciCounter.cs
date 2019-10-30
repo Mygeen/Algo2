@@ -20,7 +20,12 @@
             return sequence;
         }
 
-        public int[] Execute()
+        public void Execute()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Visualize()
         {
             throw new System.NotImplementedException();
         }

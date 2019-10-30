@@ -7,6 +7,7 @@ namespace MergeSort.Algorithms
 
     public class MergeSorter : IAlgorithm
     {
+        private int[] _result;
 
         public int[] Sort(int[] input)
         {
@@ -76,9 +77,14 @@ namespace MergeSort.Algorithms
             return input;
         }
 
-        public int[] Execute()
+        public void Execute()
         {
-            Console.WriteLine("\nEnter a sequence of numbers, separated by comma:");
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("-----> Merge Sort <-----");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("Enter a sequence of numbers, separated by comma:");
             var line = Console.ReadLine();
             var input = new List<int>();
             if (line == null)
@@ -100,7 +106,19 @@ namespace MergeSort.Algorithms
                 input.Add(parsedResult);
             }
 
-            return Sort(input.ToArray());
+            _result = Sort(input.ToArray());
+        }
+
+        public void Visualize()
+        {
+            foreach (var i in _result)
+            {
+                Console.Write($"{i} ");
+            }
+
+            Console.WriteLine("\nPress a key to return to the menu...");
+            Console.ReadKey();
+
         }
     }
 }

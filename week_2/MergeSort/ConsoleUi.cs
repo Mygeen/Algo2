@@ -53,15 +53,17 @@ namespace MergeSort
             return _algorithmList.GetValueOrDefault(_algorithmList.Keys.ToArray()[result - 1]);
         }
         
-        public void Execute(IAlgorithm selection)
+        public void Execute(IAlgorithm algorithm)
         {
             try
             {
-                selection.Execute();
+                algorithm.Execute();
+                algorithm.Visualize();
             }
             catch (ArgumentException e)
             {
                 PrintErrorMessage(e.Message);
+                Console.ReadKey();
             }
         }
 
