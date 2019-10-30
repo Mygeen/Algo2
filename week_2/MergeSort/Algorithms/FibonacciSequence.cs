@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Numerics;
 
 namespace MergeSort.Algorithms
 {
     public class FibonacciSequence : IAlgorithm
     {
-        private int[] _result;
+        private BigInteger[] _result;
 
         public void Execute()
         {
@@ -35,9 +36,9 @@ namespace MergeSort.Algorithms
             Console.ReadKey();
         }
 
-        private static int[] GetSequence(int steps)
+        private static BigInteger[] GetSequence(int steps)
         {
-            var sequence = new int[steps];
+            var sequence = new BigInteger[steps];
             sequence[0] = 1;
 
             if (steps > 1)
