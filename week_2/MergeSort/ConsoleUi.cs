@@ -16,7 +16,8 @@ namespace MergeSort
         {
             _algorithmList = new Dictionary<string, IAlgorithm>
             {
-                { "Merge Sort", new MergeSorter() }
+                { "Merge Sort", new MergeSorter() },
+                { "Fibonacci Sequence", new FibonacciSequence() }
             };
         }
 

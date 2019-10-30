@@ -9,8 +9,31 @@ namespace MergeSort.Algorithms
     public class MergeSorter : IAlgorithm
     {
         private int[] _result;
+        public void Execute()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("-----> Merge Sort <-----");
+            Console.ForegroundColor = ConsoleColor.White;
 
-        public int[] Sort(int[] input)
+            var input = GetUserInput();
+
+            _result = Sort(input);
+        }
+
+        public void Visualize()
+        {
+            foreach (var i in _result)
+            {
+                Console.Write($"{i} ");
+            }
+
+            Console.WriteLine("\nPress a key to return to the menu...");
+            Console.ReadKey();
+
+        }
+
+        private int[] Sort(int[] input)
         {
             Sort(input, 0, input.Length - 1);
             return input;
@@ -77,14 +100,9 @@ namespace MergeSort.Algorithms
 
             return input;
         }
-
-        public void Execute()
+        
+        private static int[] GetUserInput()
         {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("-----> Merge Sort <-----");
-            Console.ForegroundColor = ConsoleColor.White;
-
             Console.WriteLine("Enter a sequence of numbers, separated by comma:");
             var line = Console.ReadLine();
             var input = new List<int>();
@@ -107,19 +125,7 @@ namespace MergeSort.Algorithms
                 input.Add(parsedResult);
             }
 
-            _result = Sort(input.ToArray());
-        }
-
-        public void Visualize()
-        {
-            foreach (var i in _result)
-            {
-                Console.Write($"{i} ");
-            }
-
-            Console.WriteLine("\nPress a key to return to the menu...");
-            Console.ReadKey();
-
+            return input.ToArray();
         }
     }
 }
