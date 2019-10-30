@@ -23,6 +23,10 @@ namespace MergeSort.Algorithms
 
         public void Visualize()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nResult:");
+            Console.ForegroundColor = ConsoleColor.White;
+
             foreach (var i in _result)
             {
                 Console.Write($"{i} ");
@@ -30,7 +34,6 @@ namespace MergeSort.Algorithms
 
             Console.WriteLine("\nPress a key to return to the menu...");
             Console.ReadKey();
-
         }
 
         private int[] Sort(int[] input)

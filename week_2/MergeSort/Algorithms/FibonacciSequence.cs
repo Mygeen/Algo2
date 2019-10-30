@@ -22,7 +22,17 @@ namespace MergeSort.Algorithms
 
         public void Visualize()
         {
-            throw new System.NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nResult:");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            foreach (var i in _result)
+            {
+                Console.Write($"{i} ");
+            }
+
+            Console.WriteLine("\nPress a key to return to the menu...");
+            Console.ReadKey();
         }
 
         private static int[] GetSequence(int steps)
