@@ -14,9 +14,10 @@ namespace MergeSort
 
         public ConsoleUi()
         {
-            _algorithmList = new Dictionary<string, IAlgorithm>();
-            _algorithmList.Add("Fibonacci Sequence", new FibonacciCounter());
-            _algorithmList.Add("Merge Sort", new MergeSorter());
+            _algorithmList = new Dictionary<string, IAlgorithm>
+            {
+                { "Merge Sort", new MergeSorter() }
+            };
         }
 
         public void Start()
